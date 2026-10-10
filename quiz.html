@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <style>
+        .header { background-color: aqua; padding: 20px; text-align: center;}
+        footer { background-color: aquamarine; padding: 20px; text-align: center;}
+        .content {text-align: left; padding: 20px; max-width: 800px; margin: auto; background-color: antiquewhite;}
+        form p {margin-bottom: 15px;}
+        button {padding: 20px; text-align: center; background-color: chartreuse; border-radius: 10px;}
+        </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Take the Grade 5 Quiz</h1>
+    </div>
+    <div class="content">
+        <form id="quizForm">
+            <p><strong>1. What is 15 + 28?</strong><br>
+                <input type="radio" name="q1" value="a">33<br>
+                <input type="radio" name="q1" value="a">43<br>
+                <input type="radio" name="q1" value="a">45<br>
+            </p>
+            <p><strong>2. What is the fraction for half?</strong><br>
+                <input type="radio" name="q2" value="a">1/2<br>
+                <input type="radio" name="q2" value="a">2/1<br>
+                <input type="radio" name="q2" value="a">0.5<br>
+            </p>
+            <p><strong>3. A triangle has how many sides?</strong><br>
+                <input type="radio" name="q3" value="a">2<br>
+                <input type="radio" name="q3" value="a">3<br>
+                <input type="radio" name="q3" value="a">3.5<br>
+            </p>
+            <p><strong>4. Which of these is a noun?</strong><br>
+                <input type="radio" name="q4" value="a">quickly<br>
+                <input type="radio" name="q4" value="a">run<br>
+                <input type="radio" name="q4" value="a">school<br>
+            </p>
+            <p><strong>5. Choose the correct verb</strong><br>
+                <input type="radio" name="q5" value="a">apple<br>
+                <input type="radio" name="q5" value="a">play<br>
+                <input type="radio" name="q5" value="a">big<br>
+            </p>
+            <p><strong>6. What type of sentence is “Wow! That’s amazing!”?</strong><br>
+                <input type="radio" name="q6" value="a">Declarative<br>
+                <input type="radio" name="q6" value="a">Interrogative<br>
+                <input type="radio" name="q6" value="a">Exclamatory<br>
+            </p>
+            <p><strong>7. What part of the plant makes food?</strong><br>
+                <input type="radio" name="q7" value="a">Root<br>
+                <input type="radio" name="q7" value="a">Leaf<br>
+                <input type="radio" name="q7" value="a">Stem<br>
+            </p>
+            <p><strong>8. Water boils at what temperature?</strong><br>
+                <input type="radio" name="q8" value="a">0 C<br>
+                <input type="radio" name="q8" value="a">50 C<br>
+                <input type="radio" name="q8" value="a">100 C<br>
+            </p>
+            <p><strong>9. Which gas do we breathe in?</strong><br>
+                <input type="radio" name="q9" value="a">Carbon dioxide<br>
+                <input type="radio" name="q9" value="a">Oxygen<br>
+                <input type="radio" name="q9" value="a">Nitrogen<br>
+            </p>
+            <p><strong>10. The Sun is a</strong><br>
+                <input type="radio" name="q10" value="a">Black Hole<br>
+                <input type="radio" name="q10" value="a">Star<br>
+                <input type="radio" name="q10" value="a">Planet<br>
+            </p>
+            <p><strong>11. When you freeze water does it increase volume or decrease</strong><br>
+                <input type="radio" name="q11" value="a">increase<br>
+                <input type="radio" name="q11" value="a">decrease<br>
+                <input type="radio" name="q11" value="a">stays the same<br>
+            </p>
+            <p><strong>12. 14 Times 14 =</strong><br>
+                <input type="radio" name="q12" value="a">169<br>
+                <input type="radio" name="q12" value="a">196<br>
+                <input type="radio" name="q12" value="a">216<br>
+            </p>
+            <p><strong>13. Which of these is a pronoun</strong><br>
+                <input type="radio" name="q13" value="a">car<br>
+                <input type="radio" name="q13" value="a">he<br>
+                <input type="radio" name="q13" value="a">8<br>
+            </p>
+            <p><strong>14. 144/12</strong><br>
+                <input type="radio" name="q14" value="a">144<br>
+                <input type="radio" name="q14" value="a">12<br>
+                <input type="radio" name="q14" value="a">134<br>
+            </p>
+            <p><strong>15. Earth is a:</strong><br>
+                <input type="radio" name="q15" value="a">Black Hole<br>
+                <input type="radio" name="q15" value="a">Star<br>
+                <input type="radio" name="q15" value="a">Planet<br>
+            </p>
+            <button type="submit">Submit</button>
+        </form>
+        <p id="result" style="font-weight: bold; margin-top: 20px;"></p>
+    </div>
+    <footer>You're doing great keep practicing.</footer>
+    <script>
+        document.getElementById('quizForm').onsubmit = function(e) {
+            e.preventDefault();
+            let score = 0;
+            const answers = {
+                q1: 'b',
+                q2: 'a',
+                q3: 'b',
+                q4: 'c',
+                q5: 'b',
+                q6: 'c',
+                q7: 'b',
+                q8: 'c',
+                q9: 'b',
+                q10: 'b',
+                q11: 'a',
+                q12: 'b',
+                q13: 'b',
+                q14: 'b',
+                q15: 'c'
+            };
+            for(let i = 1; i <= 15; i++) {
+                const q = document.querySelector('input[name="q'+i+'"]:checked');
+                if (q && q.value === answers['q'+i]) score++;
+            }
+            document.getElementById('result').innerText = `You scored ${score} out of 15!`; 
+        };
+    </script>
+</body>
+</html>

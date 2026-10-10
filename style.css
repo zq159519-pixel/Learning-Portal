@@ -1,0 +1,67 @@
+body {
+    font-family:'Courier New', Courier, monospace;
+    margin: 0;
+    background-color: aquamarine;
+    color: black;
+    text-align: center;
+}
+.header {
+    padding: 20px;
+    color:  white;
+}
+
+form input,
+form button {
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+card {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+    font-size: bold;
+    transition: transform 0.3s, box-shadow 0.3s;
+    font-size: 1.2em;
+}
+
+.card:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.math {background-color: aqua;}
+.english {background-color: aqua;}
+.science {background-color: aqua;}
+.quiz {background-color: aqua;}
+.feedback {background-color: aqua;}
+
+.content {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+    text-align: left;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+

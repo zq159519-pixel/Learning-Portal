@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard_Kids Learning Portal</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: aquamarine;
+        }
+
+        .header {
+            background: linear-gradient(to right, aquamarine, aqua);
+            padding: 20px 20px 60px 20px;
+            position: relative;
+            text-align: center;
+            color:white;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2em;
+            font-weight: 600;
+        }
+
+        .cards {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 12px;
+        }
+
+        .card {
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .quiz {
+            background: linear-gradient(135deg, aqua, aquamarine);
+            color: white;
+        }
+
+        .feedback {
+            background: linear-gradient(135deg, aqua, aquamarine);
+            color: white;
+        }
+
+        .img-placeholder {
+            width: 80px;
+            height: auto;
+            border-radius: 50%;
+            margin-top: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .timetable-container {
+            width: 95%;
+            margin: 30px auto;
+            text-align: center;
+        }
+
+        .timetable-table {
+            width: 100%;
+            border-collapse: collapse;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            background: white;
+        }
+
+        .timetable-table th,
+        .timetable-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            vertical-align: middle;
+        }
+
+        .timetable-table th {
+            background-color: yellow;
+            color: black;
+            font-size: 1.1rem;
+        }
+
+        .timetable-table td {
+            font-size: 1rem;
+            background-color: orange;
+        }
+
+        .timetable-table a {
+            text-decoration: none;
+            font-weight: bold;
+            color: black; 
+        }
+
+        .button-container {
+            margin: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 1rem;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+            background: greenyellow;
+            color: #fff;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background: yellow
+        }
+
+        select {
+            width: 100%;
+            padding: 6px;
+            font-size: 1rem;
+            border: 1px soild black;
+            background: #fff;
+            border-radius: 4px;
+        }
+
+    </style>
+</head>
+<body>
+    <img src="avatar.jpg" alt="avatar" class="img-placeholder">
+
+    <div class="header">
+        <h1 id="welcome">Welcome, Grade 5 Student!</h1>
+        <div class="cards">
+            <a href="quiz.html" class="card quiz">Quiz</a>
+             <a href="feedback.html" class="card feedback">Feedback</a>
+        </div>
+    </div>
+
+    <script>
+        (function(){
+            const nameKey = 'studentName';
+
+            const studentName = localStorage.getItem(nameKey);
+
+            if (studentName) {
+                const welcomeEl = document.getElementById('welcome');
+                welcomeEl.textContent = `Welcome, ${studentName}!`;
+            }
+        })();
+
+    </script>
+
+    <div class="timetable-container">
+<h2>📘 Grade 5 Weekly Planner</h2>
+<div class="button-container">
+<button onclick="enableEdit()">Edit</button>
+<button onclick="saveChanges()">Save</button>
+</div>
+<table class="timetable-table" id="timetable">
+<thead>
+    <tr>
+        <th>Time</th>
+        <th>Monday</th>
+        <th>Tuesday</th>
+        <th>Wesday</th>
+        <th>Tursday</th>
+        <th>Friday</th>
+    </tr>
+</thead>
+<tbody>
+       <tr>
+          <td>10:00 - 11:00 AM</td>
+          <td><a href="math.html">98thPercentile Math</a></td>
+          <td><a href="science.html">98thPercentile Science</a></td>
+          <td><a href="english.html">98thPercentile English</a></td>
+          <td><a href="math.html">98thPercentile Math</a></td>
+          <td><a href="science.html">98thPercentile Science</a></td>
+        </tr>
+           <tr>
+          <td>11:00 AM - 12:00 AM</td>
+          <td><a href="math.html">98thPercentile Math</a></td>
+          <td><a href="science.html">98thPercentile Science</a></td>
+          <td><a href="english.html">98thPercentile English</a></td>
+          <td><a href="math.html">98thPercentile Math</a></td>
+          <td><a href="science.html">98thPercentile Science</a></td>
+        </tr>
+
+        <tr>
+          <td>12:00 - 1:00 PM</td>
+          <td colspan="5">Lunch Break 🍱</td>
+        </tr>
+
+           <tr>
+          <td>1:00 PM - 2:00 AM</td>
+          <td>PE</a></td>
+          <td>Games</a></td>
+          <td>Art</a></td>
+          <td>Music</td>
+          <td>PE</a></td>
+        </tr>
+
+        
+           <tr>
+          <td>2:00 PM - 3:00 PM</td>
+          <td><a href="math.html">98thPercentile Math</a></td>
+          <td><a href="science.html">98thPercentile Science</a></td>
+          <td><a href="english.html">98thPercentile English</a></td>
+          <td><a href="math.html">98thPercentile Math</a></td>
+          <td><a href="science.html">98thPercentile Science</a></td>
+        </tr>
+
+         <tr>
+          <td>3:00 PM - 4:00 PM</td>
+          <td><a href="math.html">98thPercentile Math</a></td>
+          <td><a href="science.html">98thPercentile Science</a></td>
+          <td><a href="english.html">98thPercentile English</a></td>
+          <td><a href="math.html">98thPercentile Math</a></td>
+          <td><a href="science.html">98thPercentile Science</a></td>
+        </tr>
+
+        
+         <tr>
+          <td>4:00 PM - 5:00 PM</td>
+          <td><a href="math.html">98thPercentile Math</a></td>
+          <td><a href="science.html">98thPercentile Science</a></td>
+          <td><a href="english.html">98thPercentile English</a></td>
+          <td><a href="math.html">98thPercentile Math</a></td>
+          <td><a href="science.html">98thPercentile Science</a></td>
+        </tr>
+
+       
+</tbody>
+</table>
+    </div>
+
+    <script>
+        const subjects = [
+            { name: "98thPercentile Math", link: "math.html"},
+            { name: "98thPercentile Science", link: "science.html"},
+            { name: "98thPercentile English", link: "english.html"},
+            { name: "Games", link: ""},
+            { name: "Music", link: ""},
+            { name: "Art", link: ""},
+            { name: "PE", link: ""},
+        ];
+
+        function enableEdit() {
+      const table = document.getElementById('timetable');
+      for (let r = 1; r < table.rows.length; r++) {
+        const row = table.rows[r];
+        for (let c = 1; c < row.cells.length; c++) {
+          const cell = row.cells[c]; 
+          if (cell.colSpan > 1) continue;
+          const text = cell.innerText.trim();
+          const select = document.createElement('select');
+          subjects.forEach(sub => {
+            const opt = document.createElement('option');
+            opt.value = sub.name;
+            opt.textContent = sub.name; 
+            if (sub.name === text) opt.selected = true;
+            select.appendChild(opt);
+          });
+          cell.innerHTML = '';
+          cell.appendChild(select);
+        }
+      }
+    }    
+
+    function saveChanges() {
+        const table = document.getElementById('timetable');
+        for (let r = 1; r < table.rows.length; r++) {
+            const row = table.rows[r];
+            for (let c = 1; c < row.cells.length; c++) {
+                const cell = row.cells[c];
+                if (cell.colSpan > 1) continue;
+                const select = cell.querySelector('select');
+                if (select) {
+                    const val = select.value;
+                    const subj = subjects.find(s => s.name === val);
+                    cell.innerHTML = subj.link
+                        ? `<a href="${subj.link}">${subj.name}</a>`
+                        : subj.name;
+                } 
+            }
+        }
+    }       
+
+</script>
+</body>
+</html>
